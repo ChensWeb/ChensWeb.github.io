@@ -33,11 +33,12 @@
 			&nbsp
 			<div id="pc_net" hidden>
 				<input type="radio" name="material" id="PU" onclick="cal1()" value="PU">
-				<label for="taiwan">PU面</label>
+				<label for="taiwan">PU</label>
 				&nbsp
 				<input type="radio" name="material" id="net" onclick="cal2()" value="net">
-				<label for="china">網布面</label>		
+				<label for="china">Mesh surface</label>		
 			</div> 
+			&nbsp
 			<div>  
 				<label>Quote：</label>
 				<input type="text" name="price" id = "price" >
@@ -60,15 +61,16 @@
 			</div> 	
 			&nbsp
 			<div id="revenue_net" hidden>
-				<input type="radio" name="material" id="48" onclick="fourtyeight()" value="48">
+				<input type="radio" name="number" id="48" onclick="fourtyeight()" value="48">
 				<label for="48">48%</label>
 				&nbsp
-				<input type="radio" name="material" id="57" onclick="fiftyseven()" value="57">
+				<input type="radio" name="number" id="57" onclick="fiftyseven()" value="57">
 				<label for="57">57%</label>	
 				&nbsp
-				<input type="radio" name="material" id="61" onclick="sixtyone()" value="61">
+				<input type="radio" name="number" id="61" onclick="sixtyone()" value="61">
 				<label for="61">61%</label>				
-			</div> 
+			</div>
+			&nbsp			
 			<div>  
 				<label>Pricing：</label>
 				<input type="text" name="pricing" id = "pricing" >
@@ -82,13 +84,14 @@
 		&nbsp
 		<div id ="icon-box2">  
 			<button type="button" onclick="clean()" id = "btn">Clean</button>
+		</div>	
+		&nbsp
+		<div hidden>  
+			<label>Tip：</label>
+			<input type="text" id="tip">
 		</div>			
 	</div>
 	&nbsp
-	<div>  
-		<label>Tip：</label>
-		<input type="text" id="tip">
-	</div>	
 	&nbsp
   </div>
 </div>
