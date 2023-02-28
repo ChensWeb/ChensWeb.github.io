@@ -39,15 +39,20 @@
 				<label for="china">Mesh surface</label>		
 			</div> 
 			&nbsp
-			<div>  
-				<label>Quote：</label>
-				<input type="text" name="price" id = "price" >
+			<div id = "row">
+				<div>
+					<div>  
+						<label id = "price_label">Quote：</label>
+						<input type="text" name="price" id = "price" >
+					</div>
+					&nbsp
+					<div>  
+						<label id = "total_label">Cost：</label>
+						<input type="text" id="total">
+					</div>
+				</div>	
+				<button type="button" onclick="switch1()" id = "btn2"><i class="fas fa-sort"></i></button>				
 			</div>
-			&nbsp
-			<div>  
-				<label>Cost：</label>
-				<input type="text" id="total">
-			</div>			
 		</div>
 		&nbsp
 		<div id ="icon-box2">
@@ -70,20 +75,25 @@
 				<input type="radio" name="number" id="61" onclick="sixtyone()" value="61">
 				<label for="61">61%</label>				
 			</div>
-			&nbsp			
-			<div>  
-				<label>Pricing：</label>
-				<input type="text" name="pricing" id = "pricing" >
-			</div>
 			&nbsp
-			<div>  
-				<label>Net Revenue：</label>
-				<input type="text" id="total_net">
-			</div>			
+			<div id = "row">
+				<div>
+					<div>  
+						<label id = "pricing_label">Pricing：</label>
+						<input type="text" name="pricing" id = "pricing" >
+					</div>
+					&nbsp
+					<div>  
+						<label id = "total_net_label">Net Revenue：</label>
+						<input type="text" id="total_net">
+					</div>
+				</div>	
+				<button type="button" onclick="switch2()" id = "btn2"><i class="fas fa-sort"></i></button>				
+			</div>					
 		</div>
 		&nbsp
 		<div id ="icon-box2">  
-			<button type="button" onclick="clean()" id = "btn">Clean</button>
+			<button type="button" onclick="clean()" id = "btn"><i class="fas fa-trash"></i></button>
 		</div>	
 		&nbsp
 		<div hidden>  
@@ -117,89 +127,156 @@ function cal() {
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
-	else {
+	if (document.getElementById("price_label").innerHTML == "Quote：" && document.getElementById("price").value != ""){
 		document.getElementById("tip").value = "";
 		price = document.getElementById("price").value;
-		totals = price*1.05+20
-		document.getElementById("total").value = totals.toFixed(2);	
+		totals = price*1.05+20;
+		final_cost = totals ;
+		document.getElementById("total").value = totals.toFixed(2);		
+	}
+	else {
+		if (document.getElementById("price").value != ""){
+			document.getElementById("tip").value = "";
+			price = document.getElementById("price").value;
+			totals = (price-20)/1.05
+			final_cost = price ;
+			document.getElementById("total").value = totals.toFixed(2);			
+		}
 	}
 }
 function cal1() {
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
-	else {
+	if (document.getElementById("price_label").innerHTML == "Quote：" && document.getElementById("price").value != ""){
 		document.getElementById("tip").value = "";
-		pirce = document.getElementById("price").value;
-		totals = pirce*32*1.045*1.05+20
-		document.getElementById("total").value = totals.toFixed(2);	
-	}	
-}
-function cal1() {
-	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
-		document.getElementById("tip").value = "please enter something";
+		price = document.getElementById("price").value;
+		totals = price*32*1.045*1.05+20
+		final_cost = totals ;
+		document.getElementById("total").value = totals.toFixed(2);		
 	}
 	else {
-		document.getElementById("tip").value = "";
-		pirce = document.getElementById("price").value;
-		totals = pirce*32*1.045*1.05+20
-		document.getElementById("total").value = totals.toFixed(2);	
-	}	
+		if (document.getElementById("price").value != ""){
+			document.getElementById("tip").value = "";
+			price = document.getElementById("price").value;
+			final_cost = price ; 
+			totals = (price-20)/1.05/1.045/32
+			document.getElementById("total").value = totals.toFixed(2);			
+		}
+	}
 }
 function cal2() {
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
-	else {
+	if (document.getElementById("price_label").innerHTML == "Quote：" && document.getElementById("price").value != ""){
 		document.getElementById("tip").value = "";
-		pirce = document.getElementById("price").value;
-		totals = pirce*32*1.12*1.05+20
-		document.getElementById("total").value = totals.toFixed(2);	
-	}	
+		price = document.getElementById("price").value;
+		totals = price*32*1.12*1.05+20;
+		final_cost = totals ;
+		document.getElementById("total").value = totals.toFixed(2);		
+	}
+	else {
+		if (document.getElementById("price").value != ""){
+			document.getElementById("tip").value = "";
+			price = document.getElementById("price").value;
+			totals = (price-20)/1.05/1.12/32;
+			final_cost = price ;
+			document.getElementById("total").value = totals.toFixed(2);			
+		}
+	}
 }
 function Business() {
 	document.getElementById('revenue_net').style.display = 'none';
-	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+	if (document.getElementById("pricing").value == "" && document.getElementById("total_net").value == ""){
 		document.getElementById("tip").value = "please enter something";
+	}
+	else if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
+		document.getElementById("tip").value = "";
+		pricing = document.getElementById("pricing").value;
+		totals_net = (pricing*0.65-totals)/(pricing*0.65)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
 	}
 	else {
 		document.getElementById("tip").value = "";
-		pircing = document.getElementById("pricing").value;
-		totals_net = (pircing*0.65-totals)/(pircing*0.65)*100
-		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+		pricing = document.getElementById("pricing").value;
+		totals_net = 2000*final_cost/(13*(100-pricing));
+		document.getElementById("total_net").value = totals_net.toFixed(2);				
 	}
 }
 function fourtyeight() {
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
-	else {
+	if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
 		document.getElementById("tip").value = "";
-		pircing = document.getElementById("pricing").value;
-		totals_net = (pircing*0.52-totals)/(pircing*0.52)*100
-		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
-	}fiftyseven
+		pricing = document.getElementById("pricing").value;
+		totals_net = (pricing*0.52-totals)/(pricing*0.52)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
+	}
+	else {
+		if (document.getElementById("pricing_label").value != ""){
+			document.getElementById("tip").value = "";
+			pricing = document.getElementById("pricing").value;
+			totals_net = 2500*final_cost/(13*(100-pricing));
+			document.getElementById("total_net").value = totals_net.toFixed(2);			
+		}
+	}
 }
 function fiftyseven() {
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
-	else {
+	if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
 		document.getElementById("tip").value = "";
-		pircing = document.getElementById("pricing").value;
-		totals_net = (pircing*0.43-totals)/(pircing*0.52)*100
-		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+		pricing = document.getElementById("pricing").value;
+		totals_net = (pricing*0.43-totals)/(pricing*0.52)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
+	}
+	else {
+		if (document.getElementById("pricing_label").value != ""){
+			document.getElementById("tip").value = "";
+			pricing = document.getElementById("pricing").value;
+			totals_net = 2500*final_cost/(1075-13*pricing);
+			document.getElementById("total_net").value = totals_net.toFixed(2);			
+		}
 	}
 }
 function sixtyone() {
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
-	else {
+	if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
 		document.getElementById("tip").value = "";
-		pircing = document.getElementById("pricing").value;
-		totals_net = (pircing*0.39-totals)/(pircing*0.52)*100
-		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+		pricing = document.getElementById("pricing").value;
+		totals_net = (pricing*0.39-totals)/(pricing*0.52)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
+	}
+	else {
+		if (document.getElementById("pricing_label").value != ""){
+			document.getElementById("tip").value = "";
+			pricing = document.getElementById("pricing").value;
+			totals_net = 2500*final_cost/(13*(75-pricing));
+			document.getElementById("total_net").value = totals_net.toFixed(2);			
+		}
 	}
 }
+
+function switch1(){
+  document.getElementById("price").value ="";
+  document.getElementById("total").value ="";
+  temp3 = document.getElementById("price_label").innerHTML;
+  temp4 = document.getElementById("total_label").innerHTML;
+  document.getElementById("price_label").innerHTML = temp4;
+  document.getElementById("total_label").innerHTML = temp3; 	
+}
+function switch2(){
+  document.getElementById("pricing").value = "";
+  document.getElementById("total_net").value = "";
+  temp = document.getElementById("pricing_label").innerHTML;
+  temp2 = document.getElementById("total_net_label").innerHTML;
+  document.getElementById("pricing_label").innerHTML = temp2;
+  document.getElementById("total_net_label").innerHTML = temp; 	
+}
+
 </script>
