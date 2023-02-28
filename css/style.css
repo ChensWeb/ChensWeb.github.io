@@ -85,8 +85,8 @@ input[type="text"]{
 	
 }
 #btn {
-	width: 160px;
-	height: 64px;
+	height:50px;
+	width: 50px;
 	background-image: linear-gradient(135deg, #6555a0 0%, #578aef 55%, #8f41e9 100% );
 	border-radius: 8px;
 	border:none;
@@ -102,6 +102,22 @@ input[type="text"]{
   width: 100%;
   text-align: center;
   background: #CCE5FF;
+}
+#btn2 {
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height:35px;
+  width: 35px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+#btn2:hover {
+  background-color: RoyalBlue;
 }
 h2 {
   text-transform: uppercase;
@@ -166,3 +182,4 @@ p {
     height: 4px;
   }
 }
+
