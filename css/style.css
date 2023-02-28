@@ -47,9 +47,15 @@ html, body {
 body {
   background: #000010;
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color: #000000;
   line-height: 1.3;
   -webkit-font-smoothing: antialiased;
+}
+
+#row {
+	display: flex;
+	flex-wrap: wrap;
+    margin-left: 15cm;
 }
 
 #particles {
@@ -57,7 +63,24 @@ body {
   height: 100%;
   overflow: hidden;
 }
-
+#icon-box {
+  background: #CCE5FF;
+  transition: ease-in-out 0.3s;
+}
+#icon-box2 {
+	background: #CCE5FF;
+	margin-left: 25px;
+}
+#btn {
+	width: 160px;
+	height: 64px;
+	background-image: linear-gradient(135deg, #6555a0 0%, #578aef 55%, #8f41e9 100% );
+	border-radius: 8px;
+	border:none;
+	color:white;
+	font-size: 28px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 #intro {
   position: absolute;
   left: 0;
@@ -65,12 +88,13 @@ body {
   padding: 0 10px;
   width: 100%;
   text-align: center;
+  background: #CCE5FF;
 }
 h2 {
   text-transform: uppercase;
   font-size: 50px;
   font-weight: 120;
-  color: #ffffff;
+  color: #000000;
   letter-spacing: 0.05em;
 }
 h1::after {
