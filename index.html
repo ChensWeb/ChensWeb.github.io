@@ -18,10 +18,78 @@
 
 <div id="particles">
   <div id="intro">
-      <h2 style="font-family: 'Syncopate', sans-serif; font-weight: 10;">Anon Developer&nbsp<a href="deedy.pdf" style="color: white;"><img src="https://png.icons8.com/office/40/000000/open-resume.png" height="35" width="35"></a></h2>
+      <h2 style="font-family: 'Syncopate', sans-serif; font-weight: 10;">DeVelop&nbsp<a href="deedy.pdf" style="color: white;"></a></h2>
         <hr style="width: 50%; background-color: #E83951; border-color: #E83951;">
-    <a href="https://www.linkedin.com/in/#/" style="color: white;"><i class="fab fa-linkedin" style="font-size: 2em;"></i></a>
-    &nbsp
+	<div id ="row">
+		<div id ="icon-box">
+			<div class ="icon-box">
+				<label>Factory：</label>
+				<input type="radio" name="place" id="taiwan" onclick="cal()" value="taiwan">
+				<label for="taiwan">Taiwan Factory</label>
+				&nbsp
+				<input type="radio" name="place" id="china" value="china" onclick="show1()">
+				<label for="china">China Factory</label>
+			</div> 
+			&nbsp
+			<div id="pc_net" hidden>
+				<input type="radio" name="material" id="PU" onclick="cal1()" value="PU">
+				<label for="taiwan">PU面</label>
+				&nbsp
+				<input type="radio" name="material" id="net" onclick="cal2()" value="net">
+				<label for="china">網布面</label>		
+			</div> 
+			<div>  
+				<label>Quote：</label>
+				<input type="text" name="price" id = "price" >
+			</div>
+			&nbsp
+			<div>  
+				<label>Cost：</label>
+				<input type="text" id="total">
+			</div>			
+		</div>
+		&nbsp
+		<div id ="icon-box2">
+			<div class ="icon-box">
+				<label>Commercial：</label>
+				<input type="radio" name="place" id="Business" onclick="Business()" value="Business">
+				<label for="Business">Business Unit</label>
+				&nbsp
+				<input type="radio" name="place" id="Family" value="Family" onclick="show2()">
+				<label for="Family">Family</label>
+			</div> 	
+			&nbsp
+			<div id="revenue_net" hidden>
+				<input type="radio" name="material" id="48" onclick="fourtyeight()" value="48">
+				<label for="48">48%</label>
+				&nbsp
+				<input type="radio" name="material" id="57" onclick="fiftyseven()" value="57">
+				<label for="57">57%</label>	
+				&nbsp
+				<input type="radio" name="material" id="61" onclick="sixtyone()" value="61">
+				<label for="61">61%</label>				
+			</div> 
+			<div>  
+				<label>Pricing：</label>
+				<input type="text" name="pricing" id = "pricing" >
+			</div>
+			&nbsp
+			<div>  
+				<label>Net Revenue：</label>
+				<input type="text" id="total_net">
+			</div>			
+		</div>
+		&nbsp
+		<div id ="icon-box2">  
+			<button type="button" onclick="clean()" id = "btn">Clean</button>
+		</div>			
+	</div>
+	&nbsp
+	<div>  
+		<label>Tip：</label>
+		<input type="text" id="tip">
+	</div>	
+	&nbsp
     <a href="https://www.facebook.com/#/" style="color: white;"><i class="fab fa-facebook" style="font-size: 2em;"></i></a>
     &nbsp
     <a href="https://github.com/#/" style="color: white;"><i class="fab fa-github" style="font-size: 2em;"></i></a>
@@ -32,3 +100,108 @@
 
 </body>
 </html>
+<script>
+function clean(){
+	document.getElementById("price").value = "";
+	document.getElementById("total").value = "";
+	document.getElementById("pricing").value = "";
+	document.getElementById("total_net").value = "";
+	document.getElementById("tip").value = "";
+}
+function show1(){
+  document.getElementById('pc_net').style.display = 'block';
+}
+function show2(){
+  document.getElementById('revenue_net').style.display = 'block';
+}				
+function cal() {
+	document.getElementById('pc_net').style.display = 'none';
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		price = document.getElementById("price").value;
+		totals = price*1.05+20
+		document.getElementById("total").value = totals.toFixed(2);	
+	}
+}
+function cal1() {
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pirce = document.getElementById("price").value;
+		totals = pirce*32*1.045*1.05+20
+		document.getElementById("total").value = totals.toFixed(2);	
+	}	
+}
+function cal1() {
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pirce = document.getElementById("price").value;
+		totals = pirce*32*1.045*1.05+20
+		document.getElementById("total").value = totals.toFixed(2);	
+	}	
+}
+function cal2() {
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pirce = document.getElementById("price").value;
+		totals = pirce*32*1.12*1.05+20
+		document.getElementById("total").value = totals.toFixed(2);	
+	}	
+}
+function Business() {
+	document.getElementById('revenue_net').style.display = 'none';
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pircing = document.getElementById("pricing").value;
+		totals_net = (pircing*0.65-totals)/(pircing*0.65)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+	}
+}
+function fourtyeight() {
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pircing = document.getElementById("pricing").value;
+		totals_net = (pircing*0.52-totals)/(pircing*0.52)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+	}fiftyseven
+}
+function fiftyseven() {
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pircing = document.getElementById("pricing").value;
+		totals_net = (pircing*0.43-totals)/(pircing*0.52)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+	}
+}
+function sixtyone() {
+	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
+		document.getElementById("tip").value = "please enter something";
+	}
+	else {
+		document.getElementById("tip").value = "";
+		pircing = document.getElementById("pricing").value;
+		totals_net = (pircing*0.39-totals)/(pircing*0.52)*100
+		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";	
+	}
+}
+</script>
