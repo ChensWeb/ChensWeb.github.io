@@ -106,6 +106,9 @@
 		<button type="button" onclick="clean()" id = "btn"><i class="fas fa-trash"></i></button>
 	</div>
 	&nbsp
+	<div id ="icon-box2">  
+		<button type="button" onclick="backcal()" id = "btn"><i class="fas fa-angle-double-up"></i></button>
+	</div>
 	&nbsp
   </div>
 </div>
@@ -113,6 +116,14 @@
 </body>
 </html>
 <script>
+
+function check_net_pricing(){
+	if (document.getElementById("pricing").value == "" && document.getElementById("total_net").value == "")
+	{
+		return false 
+	}else {return true}
+}
+
 function clean(){
 	document.getElementById("price").value = "";
 	document.getElementById("total").value = "";
@@ -134,6 +145,7 @@ function show2(){
   document.getElementById('revenue_net').style.display = 'block';
 }				
 function cal() {
+	table1_label = "cal";
 	document.getElementById('pc_net').style.display = 'none';
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
@@ -154,6 +166,7 @@ function cal() {
 	}
 }
 function cal1() {
+	table1_label = "cal1";
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
@@ -173,6 +186,7 @@ function cal1() {
 	}
 }
 function cal2() {
+	table1_label = "cal2";
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
@@ -192,6 +206,7 @@ function cal2() {
 	}
 }
 function Business() {
+	table2_label = "Business";
 	document.getElementById('revenue_net').style.display = 'none';
 	if (document.getElementById("pricing").value == "" && document.getElementById("total_net").value == ""){
 		document.getElementById("tip").value = "please enter something";
@@ -212,6 +227,7 @@ function Business() {
 	}
 }
 function fourtyeight() {
+	table2_label = "fourtyeight";
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
@@ -233,6 +249,7 @@ function fourtyeight() {
 	}
 }
 function fiftyseven() {
+	table2_label = "fiftyseven";
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
@@ -254,6 +271,7 @@ function fiftyseven() {
 	}
 }
 function sixtyone() {
+	table2_label = "sixtyone";
 	if (document.getElementById("price").value == "" && document.getElementById("total").value == ""){
 		document.getElementById("tip").value = "please enter something";
 	}
@@ -276,20 +294,75 @@ function sixtyone() {
 }
 
 function switch1(){
-  document.getElementById("pricing").value = "";
-  document.getElementById("total_net").value = "";
+  document.getElementById("price").value ="";
+  document.getElementById("total").value ="";
   temp3 = document.getElementById("price_label").innerHTML;
   temp4 = document.getElementById("total_label").innerHTML;
   document.getElementById("price_label").innerHTML = temp4;
   document.getElementById("total_label").innerHTML = temp3; 	
 }
 function switch2(){
-  document.getElementById("price").value ="";
-  document.getElementById("total").value ="";
+  document.getElementById("pricing").value = "";
+  document.getElementById("total_net").value = "";
   temp = document.getElementById("pricing_label").innerHTML;
   temp2 = document.getElementById("total_net_label").innerHTML;
   document.getElementById("pricing_label").innerHTML = temp2;
   document.getElementById("total_net_label").innerHTML = temp; 	
 }
 
+
+function backcal(){
+	if (check_net_pricing() == true ){
+		if (document.getElementById("pricing_label").innerHTML != "Pricing：" ){
+			net = document.getElementById("pricing").value ;
+			pricing  = document.getElementById("total_net").value ;		
+		}
+		else {
+			pricing = document.getElementById("pricing").value ;
+			net = document.getElementById("total_net").value ;
+			net = net.replace("%","");		
+		}
+		console.log(net)
+		if (table2_label == 'Business' ) {
+			if (document.getElementById("price_label").innerHTML == "Quote："){
+				cost = (pricing*13*(100-net))/2000
+				document.getElementById("total").value = cost.toFixed(2);
+				
+			}else{
+				cost = (pricing*13*(100-net))/2000
+				document.getElementById("price").value = cost.toFixed(2);
+			}
+		}
+		if (table2_label == 'fourtyeight') {
+			if (document.getElementById("price_label").innerHTML == "Quote："){
+				cost = (pricing*13*(100-net))/2500
+				document.getElementById("total").value = cost.toFixed(2);
+				
+			}else{
+				cost = (pricing*13*(100-net))/2500
+				document.getElementById("price").value = cost.toFixed(2);
+			}
+		}
+		if (table2_label == 'fiftyseven') {
+			if (document.getElementById("price_label").innerHTML == "Quote："){
+				cost = (pricing*(1075-13*net))/2500
+				document.getElementById("total").value = cost.toFixed(2);
+				
+			}else{
+				cost = (pricing*(1075-13*net))/2500
+				document.getElementById("price").value = cost.toFixed(2);
+			}
+		}
+		if (table2_label == 'sixtyone') {
+			if (document.getElementById("price_label").innerHTML == "Quote："){
+				cost = (pricing*13*(75-net))/2500
+				document.getElementById("total").value = cost.toFixed(2);
+				
+			}else{
+				cost = (pricing*13*(75-net))/2500
+				document.getElementById("price").value = cost.toFixed(2);
+			}
+		}
+	}	
+}
 </script>
