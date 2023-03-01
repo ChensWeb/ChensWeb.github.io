@@ -42,7 +42,7 @@
 			<div id = "row">
 				<div>
 					<div>  
-						<label id = "price_label">Quote：</label>
+						<label id = "price_label" >Quote：</label>
 						<input type="text" name="price" id = "price" >
 					</div>
 					&nbsp
@@ -51,7 +51,9 @@
 						<input type="text" id="total">
 					</div>
 				</div>	
-				<button type="button" onclick="switch1()" id = "btn2"><i class="fas fa-sort"></i></button>				
+				<div id = "pad">
+					<button type="button" onclick="switch1()" id = "btn2"><i class="fas fa-sort"></i></button>		
+				</div>			
 			</div>
 		</div>
 		&nbsp
@@ -87,19 +89,21 @@
 						<label id = "total_net_label">Net Revenue：</label>
 						<input type="text" id="total_net">
 					</div>
-				</div>	
-				<button type="button" onclick="switch2()" id = "btn2"><i class="fas fa-sort"></i></button>				
+				</div>
+				<div id = "pad">
+					<button type="button" onclick="switch2()" id = "btn2"><i class="fas fa-sort"></i></button>		
+				</div>					
 			</div>					
 		</div>
-		&nbsp
-		<div id ="icon-box2">  
-			<button type="button" onclick="clean()" id = "btn"><i class="fas fa-trash"></i></button>
-		</div>	
-		&nbsp
+		&nbsp	
 		<div hidden>  
 			<label>Tip：</label>
 			<input type="text" id="tip">
 		</div>			
+	</div>
+	&nbsp
+	<div id ="icon-box2">  
+		<button type="button" onclick="clean()" id = "btn"><i class="fas fa-trash"></i></button>
 	</div>
 	&nbsp
 	&nbsp
