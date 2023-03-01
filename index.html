@@ -116,6 +116,13 @@ function clean(){
 	document.getElementById("total_net").value = "";
 	document.getElementById("tip").value = "";
 }
+function total_cost(){
+	if (document.getElementById("price_label").innerHTML == "Quote：" && document.getElementById("total").value != ""){
+		final_cost = document.getElementById("total").value
+	}else{
+		final_cost = document.getElementById("price").value
+	}
+}
 function show1(){
   document.getElementById('pc_net').style.display = 'block';
 }
@@ -131,7 +138,6 @@ function cal() {
 		document.getElementById("tip").value = "";
 		price = document.getElementById("price").value;
 		totals = price*1.05+20;
-		final_cost = totals ;
 		document.getElementById("total").value = totals.toFixed(2);		
 	}
 	else {
@@ -139,7 +145,6 @@ function cal() {
 			document.getElementById("tip").value = "";
 			price = document.getElementById("price").value;
 			totals = (price-20)/1.05
-			final_cost = price ;
 			document.getElementById("total").value = totals.toFixed(2);			
 		}
 	}
@@ -152,14 +157,12 @@ function cal1() {
 		document.getElementById("tip").value = "";
 		price = document.getElementById("price").value;
 		totals = price*32*1.045*1.05+20
-		final_cost = totals ;
 		document.getElementById("total").value = totals.toFixed(2);		
 	}
 	else {
 		if (document.getElementById("price").value != ""){
 			document.getElementById("tip").value = "";
 			price = document.getElementById("price").value;
-			final_cost = price ; 
 			totals = (price-20)/1.05/1.045/32
 			document.getElementById("total").value = totals.toFixed(2);			
 		}
@@ -173,7 +176,6 @@ function cal2() {
 		document.getElementById("tip").value = "";
 		price = document.getElementById("price").value;
 		totals = price*32*1.12*1.05+20;
-		final_cost = totals ;
 		document.getElementById("total").value = totals.toFixed(2);		
 	}
 	else {
@@ -181,7 +183,6 @@ function cal2() {
 			document.getElementById("tip").value = "";
 			price = document.getElementById("price").value;
 			totals = (price-20)/1.05/1.12/32;
-			final_cost = price ;
 			document.getElementById("total").value = totals.toFixed(2);			
 		}
 	}
@@ -194,10 +195,12 @@ function Business() {
 	else if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
-		totals_net = (pricing*0.65-totals)/(pricing*0.65)*100
+		total_cost()
+		totals_net = (pricing*0.65-final_cost)/(pricing*0.65)*100
 		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
 	}
 	else {
+		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
 		totals_net = 2000*final_cost/(13*(100-pricing));
@@ -209,6 +212,7 @@ function fourtyeight() {
 		document.getElementById("tip").value = "please enter something";
 	}
 	if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
+		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
 		totals_net = (pricing*0.52-totals)/(pricing*0.52)*100
@@ -216,6 +220,7 @@ function fourtyeight() {
 	}
 	else {
 		if (document.getElementById("pricing_label").value != ""){
+			total_cost()
 			document.getElementById("tip").value = "";
 			pricing = document.getElementById("pricing").value;
 			totals_net = 2500*final_cost/(13*(100-pricing));
@@ -228,6 +233,7 @@ function fiftyseven() {
 		document.getElementById("tip").value = "please enter something";
 	}
 	if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
+		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
 		totals_net = (pricing*0.43-totals)/(pricing*0.52)*100
@@ -235,6 +241,7 @@ function fiftyseven() {
 	}
 	else {
 		if (document.getElementById("pricing_label").value != ""){
+			total_cost()
 			document.getElementById("tip").value = "";
 			pricing = document.getElementById("pricing").value;
 			totals_net = 2500*final_cost/(1075-13*pricing);
@@ -247,6 +254,7 @@ function sixtyone() {
 		document.getElementById("tip").value = "please enter something";
 	}
 	if (document.getElementById("pricing_label").innerHTML == "Pricing：" && document.getElementById("pricing").value != ""){
+		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
 		totals_net = (pricing*0.39-totals)/(pricing*0.52)*100
@@ -254,6 +262,7 @@ function sixtyone() {
 	}
 	else {
 		if (document.getElementById("pricing_label").value != ""){
+			total_cost()
 			document.getElementById("tip").value = "";
 			pricing = document.getElementById("pricing").value;
 			totals_net = 2500*final_cost/(13*(75-pricing));
