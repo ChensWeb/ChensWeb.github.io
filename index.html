@@ -219,7 +219,7 @@ function fourtyeight() {
 		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
-		totals_net = (pricing*0.52-totals)/(pricing*0.52)*100
+		totals_net = (pricing*0.52-final_cost)/(pricing*0.52)*100
 		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
 	}
 	else {
@@ -240,7 +240,7 @@ function fiftyseven() {
 		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
-		totals_net = (pricing*0.43-totals)/(pricing*0.52)*100
+		totals_net = (pricing*0.43-final_cost)/(pricing*0.52)*100
 		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
 	}
 	else {
@@ -261,7 +261,7 @@ function sixtyone() {
 		total_cost()
 		document.getElementById("tip").value = "";
 		pricing = document.getElementById("pricing").value;
-		totals_net = (pricing*0.39-totals)/(pricing*0.52)*100
+		totals_net = (pricing*0.39-final_cost)/(pricing*0.52)*100
 		document.getElementById("total_net").value = totals_net.toFixed(2)+"%";		
 	}
 	else {
